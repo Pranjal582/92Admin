@@ -3,6 +3,8 @@ import { ContainerS } from '../../Common/CommonStyling'
 import Header from '../../Common/Header'
 import HOC from '../../Common/HOC'
 import styled from 'styled-components'
+import { useLocation } from 'react-router'
+import { SetMealOutlined } from '@mui/icons-material'
 
 
 const MainContainers = styled.div`
@@ -77,25 +79,32 @@ const Wrapper = styled.div`
 
 
 const EditContact = () => {
+
+    const location = useLocation()
+    const {address, email, phone, company, pin} = location.state
+
+    const [cname , setcname] = React.useState(company)
+    const [email1 , setemail1] = React.useState(email)
+    const [mno , setmno] = React.useState(phone)
+    const [city , setcity] = React.useState(address)
+    const [pinno , setpinno] = React.useState(pin)
+
   return (
     <>
         <ContainerS>
             <Header cname={"Edit Contact Details"} needaddbtn={false}  />
                 <MainContainers>
-                    <Wrapper>
-                         
-                        <h6>  Company Name : </h6>
-                        <input type="text" /> 
+                    <Wrapper>                       
+                        <h6>  Company Name :</h6>
+                        <input type="text" value={cname}  onChange={(e)=>setcname(e.target.value)} /> 
                         <h6> E-mail :</h6>
-                        <input type="text" />
+                        <input type="text"  value={email1} onChange={(e)=>setemail1(e.target.value)} />
                         <h6> Contact No : </h6> 
-                        <input type="number" name="" id="" />  
+                        <input type="number" name="" id="" value={mno} onChange={(e)=>setmno(e.target.value)} />  
                         <h6>  Address :</h6>  
-                        <span> City <input type="text" /></span>                        
-                        <span>Pin<input type="text" /></span> 
-
+                        <span> City <input type="text" value={city} onChange={(e)=>setcity(e.target.value)} /></span>                        
+                        <span>Pin<input type="text" value={pinno} onChange={(e)=>setpinno(e.target.value)} /></span> 
                         <button> Save </button>  
-
                     </Wrapper>              
                 </MainContainers>
         </ContainerS>    

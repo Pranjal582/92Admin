@@ -18,7 +18,8 @@ import GavelIcon from '@mui/icons-material/Gavel';
 const Sidebar = (props) => {
         
     const removeToken = (token) => {
-        localStorage.clear();     
+        localStorage.clear();   
+        // alert("Logged out successfully")  
     };
 
     const navigate = useNavigate();
@@ -32,10 +33,11 @@ const Sidebar = (props) => {
                     <MenuItem title="Order" onClick={() => navigate("/order-list")} icon={<LocalMallOutlinedIcon />}> Order </MenuItem>
                     <MenuItem title="Users" onClick={() => navigate("/users")} icon={<AccountCircleOutlinedIcon />}>Users </MenuItem>
                     <MenuItem title="Contact" onClick={() => navigate("/contact")} icon={<ContactMailOutlinedIcon />}>Contact </MenuItem>
+                    
                     <SubMenu title="Setting" icon={<SettingsOutlinedIcon />}>   
-                        <Link to='/'>
-                            <MenuItem onClick={removeToken}>Logout</MenuItem> 
-                        </Link>                         
+                            <MenuItem onClick={()=>navigate('/user-settings')}>User Settings</MenuItem>                    
+                            <MenuItem onClick={removeToken}> <Link to='/'>Logout </Link> </MenuItem> 
+                                                
                     </SubMenu>
                     </Menu>
                 </ProSidebar>

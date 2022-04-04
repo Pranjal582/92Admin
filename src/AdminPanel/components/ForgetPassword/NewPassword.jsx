@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import sikhlo from "../../../../src/Components/images/shopping.jpg"
+// import sikhlo from "../../../../src/Components/images/shopping.jpg"
 
 //css file
 // import "./Login.css";
 
 //login,register,resetpassword uses material ui text-feild
-import { Button, Card, TextField, IconButton, OutlinedInput, InputAdornment, FormControl, InputLabel } from "@material-ui/core";
+import { Button, Card,  IconButton, OutlinedInput, InputAdornment, FormControl, InputLabel } from "@material-ui/core";
 
 //icons to show & hide th password
 import { Visibility, VisibilityOff } from "@material-ui/icons";
@@ -47,9 +47,9 @@ const EnterPassword = (props) => {
         <>
             <div className="Login_Main_div content_padding">
                 <Card className="pt-2 pb-2 Card_shadow form_width mt-2">
-                    <div >
-                        <img style={{ height: "120px", width: "120px" }} src={sikhlo} alt="" className="login_image" />
-                    </div>
+                    {/* <div >
+                        <img style={{ height: "120px", width: "120px" }} src={"sikhlo"} alt="" className="login_image" />
+                    </div> */}
                     <div>
                         <span><h6>Welcome!</h6></span>                  
                     </div>

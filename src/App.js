@@ -10,6 +10,11 @@ import ViewDoc from "./AdminPanel/components/Orders/ViewDoc";
 import Agreements from "./AdminPanel/components/Aggrement/Agreements";
 import Contact from "./AdminPanel/components/Contact/Contact";
 import EditContact from "./AdminPanel/components/Contact/EditContact";
+import UserSettings from "./AdminPanel/Settings/UserSettings";
+import ForgotPassword from './AdminPanel/components/ForgetPassword/ForgotPassword'
+
+import EnterPassword from './AdminPanel/components/ForgetPassword/NewPassword'
+import OPTpage from "./AdminPanel/components/ForgetPassword/OTPpage";
 
 
 function App() {
@@ -31,6 +36,13 @@ function App() {
         <Route path="/agreement" element={<Agreements />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/edit-contact" element={<EditContact />} />
+        <Route path="/user-settings" element={< UserSettings/>} />
+
+        {/* password reset  */}
+
+        <Route path="/forgotpassword" element={<ForgotPassword/>} />
+          <Route path="/otp" element={<OPTpage/>} />
+          <Route path="/newpassword" element={<EnterPassword/>} />
                
       </Routes>
     </>

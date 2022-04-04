@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 //material ui appbar
 import { AppBar, Toolbar } from "@material-ui/core";
-import sikhlo from "../../Image/shopping.jpg"
 //css file
 import "./Header.css";
 import { Link, useNavigate } from 'react-router-dom';
+
+const person = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6t8hxLvIrrrZUm8cEi30proXjqE8TRfHpfA&usqp=CAU'
 
 
 const Header = (props) => {
@@ -28,18 +29,16 @@ const Header = (props) => {
         <div className="topheader">
             <AppBar position="fixed" className="MainHeader">
                 <Toolbar className="header_padding">
-                        
                     <div className="d-flex">
-                    <span className='pr-3'><img src={sikhlo} alt="" height="50" /></span>
+                    <span className='pr-3'><img src={person} alt="" height="50" style={{width : '50px', borderRadius:"999px", objectFit:'cover',border:"1px solid #fff"}} /></span>
+                        <span className='pr-3 mt-1' style={{color:"#b0dd36"}}><h4>92 Admin Panel</h4></span>
                         <span className="toggle_button_sidebar mt-2">
                             <i className="fa fa-bars mr-2"
                                 onClick={() => {
                                 props.setLoading();
                             }}>
                             </i></span>
-                        <span className='pl-3 mt-1' style={{color:"#b0dd36"}}><h4>Admin Panel</h4></span>
                     </div>
-
                     <div className="header_grow" />
                     <div className="header_links">
                         <span className="d-flex " >

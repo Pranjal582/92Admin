@@ -20,7 +20,6 @@ const MainContainers = styled.div`
     padding: 20px;
   
 `
-
 const Wrapper = styled.div`
     width: 50%;
     border: 1px solid #ccc;
@@ -70,27 +69,44 @@ const Details = styled.div`
 
 const Contact = () => {
 
+    const data = [
+        {
+            id: 1,
+            company : "Company name",
+            address: "New York, USA",
+            pin: "123456",
+            phone: "1234567890",
+            email: "text@gmail.com"
+        }
+    ]
+
+
+
     const navigaet = useNavigate()
+
   return (
     <>
         <ContainerS>
             <Header cname={"Contact Details"}/>
             <MainContainers>
-                <Wrapper>
-                   <h6> <ApartmentIcon/> Company Name : <span>Company Name</span> </h6>
-                   <h6><AlternateEmailIcon/> E-mail : <span>Company@gmail.com</span> </h6>
-                   <h6> <CallIcon/> Contact No : <span> +91 9876543210</span> </h6>
+                {data.map((data=>(
+
+                <Wrapper key={data.id}>
+                   <h6> <ApartmentIcon/> Company Name : <span> {data.company} </span> </h6>
+                   <h6><AlternateEmailIcon/> E-mail : <span> {data.email} </span> </h6>
+                   <h6> <CallIcon/> Contact No : <span> +91 {data.phone}</span> </h6>
                    <Address>
                    <h6> <LocationOnOutlinedIcon/> Address : </h6> 
                      <Details>
-                         <span>New Delhi</span>
-                         <span>Pin : 110091</span>
+                         <span>{data.address} </span>
+                         <span>Pin : {data.pin} </span>
                      
 
                     </Details>
                    </Address>  
-                   <button onClick={()=>navigaet('/edit-contact')}>Edit Contact Details</button>     
+                   <button onClick={()=>navigaet('/edit-contact',{state: data})}>Edit Contact Details</button>     
                 </Wrapper>
+                )))}
             </MainContainers>
         </ContainerS>
     </>
